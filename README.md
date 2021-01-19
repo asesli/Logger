@@ -1,5 +1,5 @@
 # Logger
-Automated time logging (Temp)
+Automated time logging (Temp, these files are the core files of 2 exe files)
 
 This is the source code for automated time logging. All the filepaths will need to be re-routed. All external linkages will need to be fixed. Parameters needs to be promoted to make it .bat friendly. Currently written to be compiled in an exe. 
 
