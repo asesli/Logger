@@ -48,10 +48,14 @@ class logger():
 
 		self.collected_apps = list() 
 		self.user = getpass.getuser()
-		self.user_dir = os.environ['USERPROFILE']+'\\'
 
-		self.log = "{0}_log_{1}.txt".format(self.user_dir, self.user)
-		self.server_log = "{0}log_{1}_{2}.txt".format("L:/HAL/LIVEAPPS/utils/WorkTracker/_slog/", self.user, gethostname())
+
+
+
+		self.log = "{0}_log_{1}.txt".format(os.environ['USERPROFILE']+'\\', self.user)
+		#self.server_log = "{0}log_{1}_{2}.txt".format("L:/HAL/LIVEAPPS/utils/WorkTracker/_slog/", self.user, gethostname())
+		self.server_log = "{0}log_{1}_{2}.txt".format(os.environ['USERPROFILE']+'\\ServerLogs\\', self.user, gethostname())
+
 
 		self.delete_log(self.log)
 		self.first_run = True
@@ -64,14 +68,14 @@ class logger():
 		#verbose for memory_log, raw_log, server_log
 		self.verbose = True, True, True
 		#master verbose switch
-		self.printout = False
+		self.printout = True
 
 		if not self.printout: 
 			self.verbose = False, False, False
 
 		self.gc = False
 
-		self.settings = 0
+		self.settings = 1
 
 		if self.settings == 0:
 			#production settings
@@ -96,16 +100,6 @@ class logger():
 			self.idle_i = 600
 			self.slog_i = 5
 			self.flog_i = 15
-		
-
-
-
-
-
-
-
-
-
 		
 		
 		self.update_ftrack_timelog()
